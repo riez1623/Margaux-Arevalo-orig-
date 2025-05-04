@@ -1,105 +1,80 @@
-/* General Body and Background */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f5f5;
-    font-family: 'Arial', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Container for the book */
-#book-container {
-    width: 80vw;
-    height: 90vh;
-    overflow: hidden;
-    position: relative;
-    perspective: 1500px;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8;
 }
 
-/* The book itself */
-#book {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    transform-style: preserve-3d;
-    transition: transform 1s;
+.book-container {
+  width: 80%;
+  margin: 50px auto;
+  position: relative;
+  cursor: pointer;
 }
 
-/* The pages of the book */
+.book {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  perspective: 1500px;
+}
+
 .page {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 1s ease-in-out;
-    padding: 20px;
-    box-sizing: border-box;
-    color: #333;
-    text-align: center;
-    font-size: 1.5rem;
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+  transform-origin: center center;
+  transition: transform 0.5s ease;
 }
 
-/* Left page - default view */
-.left {
-    left: 0;
-    background-color: #fff;
-    transform: rotateY(0deg);
+.page-left {
+  background-color: #fff;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
 }
 
-/* Right page - default view */
-.right {
-    right: 0;
-    background-color: #f0f0f0;
-    transform: rotateY(180deg);
+.page-right {
+  background-color: #fff;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
 }
 
-/* Styling for page numbers at the bottom */
-#page-number {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
+.page-content {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  padding: 10px;
 }
 
-/* Page flip animations */
-.page-flip .left {
-    transform: rotateY(-180deg);
+.page-number {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #888;
 }
 
-.page-flip .right {
-    transform: rotateY(0deg);
+.book.open .page-left {
+  transform: rotateY(-180deg);
 }
 
-/* Author Page */
-.author {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 10px;
+.book.open .page-right {
+  transform: rotateY(0deg);
 }
 
-/* Style for content on the pages */
-.content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h1 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-/* Responsive for smaller screens */
-@media (max-width: 768px) {
-    #book-container {
-        width: 90vw;
-        height: 80vh;
-    }
-    .page {
-        font-size: 1.2rem;
-    }
+p {
+  text-align: justify;
+  margin-bottom: 15px;
 }
