@@ -1,71 +1,81 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
 
-#book-container {
-    position: relative;
-    width: 90%;
-    height: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.book {
+  width: 90%;
+  max-width: 800px;
+  height: 90%;
+  background-color: #d19a6a;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-#book {
-    background-color: brown;
-    color: white;
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
+.book .cover {
+  background-color: #8d5b37;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
 }
 
-#book-cover {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    flex-direction: column;
-    text-align: center;
-    padding: 50px;
-    background-color: #a52a2a;
-}
-
-#book-cover h1, #book-cover h3 {
-    margin: 10px;
-    font-size: 36px;
-}
-
-#book-content {
-    padding: 20px;
-    max-height: 100%;
-    overflow-y: auto;
-    font-size: 18px;
-    line-height: 1.5;
-    display: none;
+.pages {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 60px);
+  overflow-y: auto;
+  padding: 10px;
+  margin: 10px;
 }
 
 .page {
-    display: none;
+  padding: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  display: none;
 }
 
-#page-numbers {
-    position: absolute;
-    bottom: 10px;
-    right: 20px;
-    color: white;
-    font-size: 20px;
+.page.active {
+  display: block;
 }
 
-#page-number {
-    font-weight: bold;
+.footer {
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.next-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #8d5b37;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  background-color: #7c4d30;
 }
